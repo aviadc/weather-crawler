@@ -16,7 +16,7 @@ const getWeatherData = async (searchVal) => {
   const data = await page.evaluate(() => {
     const weatherData = {};
     [...document.querySelector('.bk-focus__info tbody').childNodes].forEach((item) => {
-      const key = item.firstChild.textContent;
+      const key = item.firstChild.textContent.slice(0,-2);
       const value = item.lastChild.textContent;
       weatherData[key] = value;
     });
