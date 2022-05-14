@@ -3,12 +3,18 @@
   height: 200px;
   border-radius: 10px;
   background-color: cadetblue;
-  border: 1px solid green;
   padding: 0.5rem;
 }
 
 .card-top{
   display: flex;
   justify-content: space-around;
-  border: 1px solid red;
+  height: 30%;
+  font-size: 1.6rem;
+ 
+}
+
+.location{
+  margin-top: 1rem;
+  // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

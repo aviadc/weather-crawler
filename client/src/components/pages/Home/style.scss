@@ -43,6 +43,10 @@
     cursor: pointer;
   }
 
+  h4{
+    text-align: center;
+  }
+
   @media screen and (max-width:500px) {
     input, button{
       font-size: 1.2rem;
@@ -56,6 +60,7 @@
 }
 
 .home-inner-body-bottom{
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
 }

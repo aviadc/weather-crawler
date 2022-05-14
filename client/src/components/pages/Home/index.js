@@ -8,14 +8,14 @@ const Home = () => {
 
   const inputRef = useRef();
 
-  const handleClick = () => {
-    setLocation(null)
-    setLocation(null)
+  const handleClick = ()=>{
+    setLocation(inputRef.current.value)
   }
 
-  useEffect(() => {
+  useEffect(()=>{
     inputRef.current.value = '';
-  }, [location])
+  },[location])
+
 
   return (
     <div className='home-container'>
@@ -29,8 +29,9 @@ const Home = () => {
       <div className='home-inner-body'>
         <div className='home-inner-body-top'>
           <input placeholder='enter location' ref={inputRef} />
-          <button onClick={() => setLocation(inputRef.current.value)}>submit</button>
+          <button onClick={handleClick}>submit</button>
         </div>
+        <h4>type specific location in order to get full weather details</h4>
         <div className='home-inner-body-bottom'>
           {location && <WeatherCard location={location} />}
         </div>

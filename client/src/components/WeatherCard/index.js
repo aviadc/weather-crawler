@@ -17,7 +17,7 @@ const WeatherCard = ({ location }) => {
           location: data.Location,
           temperature: data.temperature,
           humidity: data.Humidity,
-          // windspeed: data.windspeed,
+          moreDetails: data.moreDetails,
           imgUrl: data.imgUrl,
         })
         console.log(data);
@@ -28,24 +28,24 @@ const WeatherCard = ({ location }) => {
       }
     }
     getWeatherData(location);
-  }, [])
-
-
+  }, [location])
 
   return (
     <>
       <div className='card-container'>
         {(isLoading && <Spinner />) ||
-          weatherDetails &&
-          <>
-            <div className='card-top'>
-              <h3>{weatherDetails.temperature}</h3>
-              <img src={weatherDetails.imgUrl} alt="weather-image" />
-            </div>
-            <h3>{weatherDetails.humidity}</h3>
-            {/* <h3>{weatherDetails.windspeed}</h3> */}
-            <h3>{weatherDetails.location}</h3>
-          </>
+          (weatherDetails &&
+            <>
+              <div className='card-top'>
+                  <h3>{weatherDetails.temperature}</h3>
+                  <h3>{weatherDetails.humidity}</h3>
+                <img src={weatherDetails.imgUrl} alt="weather" />
+              </div>
+              {(weatherDetails.moreDetails).split("C").map((row)=>{
+                return <h3>{row}</h3>
+              })}
+              <h3 className='location'>{weatherDetails.location}</h3>
+            </>)
         }
       </div>
     </>
