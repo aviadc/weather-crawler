@@ -1,5 +1,14 @@
 .card-container{
-  width: 400px;
-  height: 300px;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: cadetblue;
   border: 1px solid green;
+  padding: 0.5rem;
+}
+
+.card-top{
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid red;
 }

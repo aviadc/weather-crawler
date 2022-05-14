@@ -2,7 +2,60 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  gap: 2rem;
+  background-color: rgb(243, 233, 220);
+}
+
+.home-top{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 2rem;
+  
+  h2{
+    margin-left: 1rem;
+  }
+}
+
+.home-inner-top{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @media screen and (max-width:500px) {
+    width: 80%;
+  }
+}
+
+.home-inner-body{
+
+  div{
+    margin-bottom: 1rem;
+  }
+  input, button{
+    font-size: 1.6rem;
+  }
+
+  button{
+    cursor: pointer;
+  }
+
+  @media screen and (max-width:500px) {
+    input, button{
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.home-inner-body-top{
+  display: flex;
+  justify-content: center;
+}
+
+.home-inner-body-bottom{
+  display: flex;
+  justify-content: center;
 }

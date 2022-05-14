@@ -1,37 +1,39 @@
-import React, { useState } from 'react'
-import weatherApi from '../../utils/api'
+import React, { useState, useRef, useEffect } from 'react'
 import WeatherCard from '../../WeatherCard';
 import "./style.scss"
 
 const Home = () => {
 
-  const [location, setLocation] = useState('');
-  const [weatherDetails, setWeatherDetails] = useState({});
+  const [location, setLocation] = useState(null);
 
-  const getWeatherData = async (searchVal) => {
-    try {
-      const { data } = await weatherApi.get(`/${searchVal}`);
-      setWeatherDetails({
-        location: data.Location,
-        temperature: data.temperature,
-        humidity: data.Humidity,
-        // windspeed: data.windspeed,
-        imgUrl: data.imgUrl,
-      })
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
+  const inputRef = useRef();
+
+  const handleClick = () => {
+    setLocation(null)
+    setLocation(null)
   }
+
+  useEffect(() => {
+    inputRef.current.value = '';
+  }, [location])
+
   return (
     <div className='home-container'>
+      <div className='home-top'>
+        <h2>weather crawler</h2>
+      </div>
       <div className='home-inner-top'>
-        <WeatherCard weatherDetails={weatherDetails} />
-        {/* <WeatherCard weatherDetails={weatherDetails}/> */}
+        <WeatherCard location="tel aviv" />
+        <WeatherCard location="manhattan" />
       </div>
       <div className='home-inner-body'>
-        <input placeholder='enter location' onChange={(e) => setLocation(e.target.value)} />
-        <button onClick={() => getWeatherData(location)}>Click Me!</button>
+        <div className='home-inner-body-top'>
+          <input placeholder='enter location' ref={inputRef} />
+          <button onClick={() => setLocation(inputRef.current.value)}>submit</button>
+        </div>
+        <div className='home-inner-body-bottom'>
+          {location && <WeatherCard location={location} />}
+        </div>
       </div>
     </div>
   )
