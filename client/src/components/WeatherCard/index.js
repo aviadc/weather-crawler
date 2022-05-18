@@ -42,7 +42,7 @@ const WeatherCard = ({ location }) => {
                 <img src={weatherDetails.imgUrl} alt="weather" />
               </div>
               {(weatherDetails.moreDetails).split("C").map((row)=>{
-                return <h3 key={Math.random()}>{row}</h3> 
+                return <h3 key={Math.random()}>{row}</h3>  
               })}
               <h3 className='location'>{weatherDetails.location}</h3>
             </>)
