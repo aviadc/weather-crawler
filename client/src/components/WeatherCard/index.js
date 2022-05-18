@@ -35,7 +35,7 @@ const WeatherCard = ({ location }) => {
       <div className='card-container'>
         {(isLoading && <Spinner />) ||
           (weatherDetails &&
-            <>
+            <> 
               <div className='card-top'>
                   <h3>{weatherDetails.temperature}</h3>
                   <h3>{weatherDetails.humidity}</h3>
