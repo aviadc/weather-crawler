@@ -24,7 +24,7 @@ const getWeatherData = async (searchVal) => {
     weatherData['imgUrl'] = document.querySelector('#cur-weather').src;
     weatherData['temperature'] = document.querySelector('.h2').textContent;
     weatherData['moreDetails'] = document.querySelector('#qlook').lastChild.textContent;
-    return weatherData;  
+    return weatherData;    
   });
   browser.close();
   return data;
